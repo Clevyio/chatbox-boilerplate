@@ -9,7 +9,7 @@ const replace   = require('gulp-replace');
 
 
 gulp.task('compile-css', function () {
-  gulp.src('./src/style.scss')
+  return gulp.src('./src/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(prefixer('Explorer 10'))
     .pipe(minify())
@@ -18,15 +18,13 @@ gulp.task('compile-css', function () {
 });
 
 gulp.task('compile-js', function () {
-  gulp.src('./src/script.js') // path to your files
+  return gulp.src('./src/script.js') // path to your files
     .pipe(babel({
-      presets: ['env']
+      presets: ['@babel/env']
     }))
     .pipe(uglify())
     .pipe(rename('script.min.js'))
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['compile-js', 'compile-css']);
-
-gulp.start('default');
+gulp.task('default', gulp.series(gulp.parallel('compile-js', 'compile-css')));
