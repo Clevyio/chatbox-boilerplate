@@ -26,4 +26,4 @@ Insert the following script in your webpage (insert your own Clevy Webapp URL).
 
 ## Demo
 
-Try the demo by modifying `demo/index.html` with your own Clevy Webapp URL and running `npm run demo`.
+Try the demo by modifying `demo/index.html` with your own Clevy Webapp URL and running `npm run demo`, then visit https://localhost:8080/demo
