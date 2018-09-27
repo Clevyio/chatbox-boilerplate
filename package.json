@@ -4,7 +4,7 @@
   "description": "Clevy webapp chatbox custom wrapper",
   "scripts": {
     "build": "gulp default",
-    "demo": "npm run build && npm run demo",
+    "demo": "npm run build && http-server .",
     "lint": "eslint src"
   },
   "repository": {
